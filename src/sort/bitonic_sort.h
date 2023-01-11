@@ -9,6 +9,8 @@ class BitonicSort : public BaseSort
   }
 
   void compare(int a, int b, bool asc) {
+	if (!isThreadRunning())
+	  return;
 	if (
 	  (asc && (data.arr[a] > data.arr[b])) ||
 	  (!asc && (data.arr[a] < data.arr[b]))
@@ -17,6 +19,8 @@ class BitonicSort : public BaseSort
   };
 
   void merge(int start, int count, bool asc) {
+	if (!isThreadRunning())
+	  return;
 	if (count > 1)
 	{
 	  int k = count / 2;
@@ -29,6 +33,8 @@ class BitonicSort : public BaseSort
 
   void sort(int start, int count, bool asc)
   {
+	if (!isThreadRunning())
+	  return;
 	if (count > 1)
 	{
 	  int half = count / 2;

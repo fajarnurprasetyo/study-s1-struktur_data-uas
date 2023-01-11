@@ -9,12 +9,14 @@ void App::setup() {
 	caviarDreamsI = "fonts/CaviarDreams_Italic.ttf",
 	caviarDreamsBI = "fonts/CaviarDreams_BoldItalic.ttf";
 
-  caviarDreamsCR14.load(caviarDreamsR, 14);
-
   caviarDreamsR18.load(caviarDreamsR, 18);
 
+  caviarDreamsB14.load(caviarDreamsB, 14);
   caviarDreamsB18.load(caviarDreamsB, 18);
   caviarDreamsB32.load(caviarDreamsB, 32);
+
+  // CALCULATOR
+  calc.setup();
 
   // BINARY TREE
   treeSettings.setup("Binary Tree");
@@ -67,6 +69,7 @@ void App::treeAddNode(int& value) {
 	treeScrollBar.setMin(-maxWidth);
 	treeScrollBar.setMax(maxWidth);
   }
+  treeTraverse();
 }
 
 //=============================================================================
@@ -85,6 +88,7 @@ void App::treeGenerateRandom() {
 	  rand = ofRandom(51, 99);
 	treeAddNode(rand);
   }
+  treeTraverse();
 }
 
 //=============================================================================
@@ -92,6 +96,44 @@ void App::treeReset() {
   treeScrollPosition = 0;
   treeMaxNodeLevel = 1;
   treeData = NULL;
+  treeTraverse();
+}
+
+//=============================================================================
+void App::treeTraverseInorder(Tree* node) {
+  if (node != NULL) {
+	treeTraverseInorder(node->leftNode);
+	treeInorder.push_back(node->value);
+	treeTraverseInorder(node->rightNode);
+  }
+}
+
+//=============================================================================
+void App::treeTraversePreorder(Tree* node) {
+  if (node != NULL) {
+	treePreorder.push_back(node->value);
+	treeTraversePreorder(node->leftNode);
+	treeTraversePreorder(node->rightNode);
+  }
+}
+
+//=============================================================================
+void App::treeTraversePostorder(Tree* node) {
+  if (node != NULL) {
+	treeTraversePostorder(node->leftNode);
+	treeTraversePostorder(node->rightNode);
+	treePostorder.push_back(node->value);
+  }
+}
+
+//=============================================================================
+void App::treeTraverse() {
+  treeInorder.clear();
+  treePreorder.clear();
+  treePostorder.clear();
+  treeTraverseInorder(treeData);
+  treeTraversePreorder(treeData);
+  treeTraversePostorder(treeData);
 }
 
 //=============================================================================
@@ -161,8 +203,12 @@ void App::drawMenu(char* title, vector<char*> menu, int selected) {
 }
 
 //=============================================================================
+void App::drawCalc() {
+  calc.draw();
+}
+
+//=============================================================================
 void App::drawTree(Tree* node, float cx, float cy) {
-  float r = treeNodeSize / 2;
   ofPushMatrix();
   ofTranslate(cx, cy);
 
@@ -170,13 +216,13 @@ void App::drawTree(Tree* node, float cx, float cy) {
   if (node->leftNode != NULL) {
 	float x = treeNodeSize * -pow(2, (treeMaxNodeLevel - node->leftNode->level));
 	float y = treeNodeSize * 3;
-	ofDrawLine(0, r, x, y + r);
+	ofDrawLine(0, treeNodeSize, x, y + treeNodeSize);
 	drawTree(node->leftNode, x, y);
   }
   if (node->rightNode != NULL) {
 	float x = treeNodeSize * pow(2, (treeMaxNodeLevel - node->rightNode->level));
 	float y = treeNodeSize * 3;
-	ofDrawLine(0, r, x, y + r);
+	ofDrawLine(0, treeNodeSize, x, y + treeNodeSize);
 	drawTree(node->rightNode, x, y);
   }
 
@@ -186,8 +232,36 @@ void App::drawTree(Tree* node, float cx, float cy) {
   ofSetColor(20);
   ofDrawCircle(0, treeNodeSize, treeNodeSize - 2);
   ofSetColor(200);
-  caviarDreamsCR14.drawStringCentered(ofToString(node->value), 0, treeNodeSize);
+  caviarDreamsB14.drawStringCentered(ofToString(node->value), 0, treeNodeSize);
   ofPopMatrix();
+}
+
+//=============================================================================
+void App::drawTreeTraverse() {
+  caviarDreamsB14.drawString("Inorder", 0, 0);
+  caviarDreamsB14.drawString("Preorder", 0, 64);
+  caviarDreamsB14.drawString("Postorder", 0, 128);
+  float
+	x1 = 0,
+	x2 = 0,
+	x3 = 0;
+  for (int i = 0; i < treeInorder.size(); i++)
+  {
+	string
+	  t1 = ofToString(treeInorder[i]) + "; ",
+	  t2 = ofToString(treePreorder[i]) + "; ",
+	  t3 = ofToString(treePostorder[i]) + "; ";
+	caviarDreamsB14.drawString(t1, x1, 32);
+	caviarDreamsB14.drawString(t2, x2, 96);
+	caviarDreamsB14.drawString(t3, x3, 160);
+	ofRectangle
+	  bb1 = caviarDreamsB14.getStringBoundingBox(t1, 0, 0),
+	  bb2 = caviarDreamsB14.getStringBoundingBox(t2, 0, 0),
+	  bb3 = caviarDreamsB14.getStringBoundingBox(t3, 0, 0);
+	x1 += bb1.width;
+	x2 += bb2.width;
+	x3 += bb3.width;
+  }
 }
 
 //=============================================================================
@@ -197,12 +271,24 @@ void App::draw() {
   case 0:
 	drawMenu("UAS1 Struktur Data", mainMenu, mainMenuSelected);
 	break;
+  case 1:
+	// INPUT DATA
+	caviarDreamsB18.drawString(inputName, 32, 64);
+	break;
+  case 2:
+	// CALCULATOR
+	drawCalc();
+	break;
 	// BINARY TREE
   case 4:
 	if (treeData != NULL) {
 	  ofPushMatrix();
-	  ofTranslate(treeScrollPosition, 0);
+	  ofTranslate(-treeScrollPosition, 0);
 	  drawTree(treeData, ofGetWidth() / static_cast<float>(2), 0);
+	  ofPopMatrix();
+	  ofPushMatrix();
+	  ofTranslate(32, 576);
+	  drawTreeTraverse();
 	  ofPopMatrix();
 	}
 	treeSettings.draw();
@@ -268,6 +354,14 @@ void App::mainKeyPressed(int key) {
 }
 
 //=============================================================================
+void App::inputKeyPressed(int key) {
+  switch (key) {
+  case OF_KEY_RETURN:
+	break;
+  }
+}
+
+//=============================================================================
 void App::sortingKeyPressed(int key) {
   if (sortingProgram == 0) {
 	int max = sortingMenu.size() - 1;
@@ -308,6 +402,9 @@ void App::keyPressed(int key) {
   case 0:
 	mainKeyPressed(key);
 	break;
+  case 1:
+	inputKeyPressed(key);
+	break;
   case 4:
 	if (key == OF_KEY_ESC)
 	  mainProgram = 0;
@@ -325,7 +422,11 @@ void App::keyReleased(int key) {
 
 //=============================================================================
 void App::mouseMoved(int x, int y) {
-
+  switch (mainProgram) {
+  case 2:
+	calc.mouseMoved(x, y);
+	break;
+  }
 }
 
 //=============================================================================
@@ -335,7 +436,11 @@ void App::mouseDragged(int x, int y, int button) {
 
 //=============================================================================
 void App::mousePressed(int x, int y, int button) {
-
+  switch (mainProgram) {
+  case 2:
+	calc.mousePressed(x, y, button);
+	break;
+  }
 }
 
 //=============================================================================

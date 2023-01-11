@@ -60,6 +60,9 @@
     <Filter Include="src\addons">
       <UniqueIdentifier>{8bd5e200-c5f3-43c2-a7d5-49f0bdca2d76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\calc">
+      <UniqueIdentifier>{b3246d67-8a8a-4ed4-a9d7-ce9f7aa2561c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.h">
@@ -188,8 +191,14 @@
     <ClInclude Include="src\tree\tree.h">
       <Filter>src\tree</Filter>
     </ClInclude>
-    <ClInclude Include="src\addons\ofxCenteredTrueTypeFont.h">
+    <ClInclude Include="src\addons\ofxTrueTypeFont.h">
       <Filter>src\addons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\calc\calc_button.h">
+      <Filter>src\calc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\calc\adv_calc.h">
+      <Filter>src\calc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

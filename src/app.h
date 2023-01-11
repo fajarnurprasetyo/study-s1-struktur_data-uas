@@ -2,7 +2,9 @@
 
 #include "ofMain.h"
 
-#include "addons/ofxCenteredTrueTypeFont.h"
+#include "addons/ofxTrueTypeFont.h"
+
+#include "calc/adv_calc.h"
 
 #include "tree/tree.h"
 
@@ -38,16 +40,14 @@
 class App : public ofBaseApp {
 private:
   // FONTS
-  ofxCenteredTrueTypeFont
-	caviarDreamsCR14;
-
-  ofTrueTypeFont
+  ofxTrueTypeFont
 	caviarDreamsR18,
 
+	caviarDreamsB14,
 	caviarDreamsB18,
 	caviarDreamsB32;
 
-  int mainProgram = 0;
+  int mainProgram = 4;
   vector<char*> mainMenu = {
 	"Input Data",
 	"Advanced Calc",
@@ -56,6 +56,12 @@ private:
 	"Sorting Simulation",
   };
   int mainMenuSelected = 0;
+
+  // INPUT DATA
+  char* inputName = "";
+
+  // CALCULATOR
+  AdvCalc calc;
 
   // BINARY TREE
   float
@@ -66,6 +72,10 @@ private:
 	treeMaxNodeLevel = 1,
 	treeNodeValue;
   Tree* treeData = NULL;
+  vector<int>
+	treeInorder,
+	treePreorder,
+	treePostorder;
   ofxPanel treeSettings;
   ofxIntField
 	treeAddNodeInput,
@@ -78,6 +88,10 @@ private:
   void treeSetRandomCount(int& count);
   void treeGenerateRandom();
   void treeReset();
+  void treeTraverseInorder(Tree* node);
+  void treeTraversePreorder(Tree* node);
+  void treeTraversePostorder(Tree* node);
+  void treeTraverse();
   void treeScrollBarCb(float& possition);
 
   // SORTING SIMULATION
@@ -128,10 +142,13 @@ public:
   void setup();
   void update();
   void drawMenu(char* title, vector<char*> menu, int selected);
+  void drawCalc();
   void drawTree(Tree* tree, float x, float y);
+  void drawTreeTraverse();
   void draw();
 
   void mainKeyPressed(int key);
+  void inputKeyPressed(int key);
   void sortingKeyPressed(int key);
   void keyPressed(int key);
   void keyReleased(int key);
