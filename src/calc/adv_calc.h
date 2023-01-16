@@ -206,7 +206,7 @@ public:
   string dec2bin(string num)
   {
 	int n = stoi(num);
-	int bin[32]; 
+	int bin[32];
 	int i = 0;
 	while (n > 0) {
 	  bin[i] = n % 2;
@@ -305,150 +305,148 @@ public:
 	}
   }
 
-  void mousePressed(int x, int y, int button) {
-	if (button == OF_MOUSE_BUTTON_LEFT) {
-	  if (calcButtonA.contains(x, y))
-		putNumber('A');
-	  else if (calcButtonB.contains(x, y))
-		putNumber('B');
-	  else if (calcButtonC.contains(x, y))
-		putNumber('C');
-	  else if (calcButtonD.contains(x, y))
-		putNumber('D');
-	  else if (calcButtonE.contains(x, y))
-		putNumber('E');
-	  else if (calcButtonF.contains(x, y))
-		putNumber('F');
-	  else if (calcButton0.contains(x, y))
-		putNumber('0');
-	  else if (calcButtonDot.contains(x, y))
-		putNumber('.');
-	  else if (calcButton1.contains(x, y))
-		putNumber('1');
-	  else if (calcButton2.contains(x, y))
-		putNumber('2');
-	  else if (calcButton3.contains(x, y))
-		putNumber('3');
-	  else if (calcButton4.contains(x, y))
-		putNumber('4');
-	  else if (calcButton5.contains(x, y))
-		putNumber('5');
-	  else if (calcButton6.contains(x, y))
-		putNumber('6');
-	  else if (calcButton7.contains(x, y))
-		putNumber('7');
-	  else if (calcButton8.contains(x, y))
-		putNumber('8');
-	  else if (calcButton9.contains(x, y))
-		putNumber('9');
-	  else if (calcButtonDel.contains(x, y))
-		deleteFn();
-	  else if (calcButtonMin.contains(x, y))
-		putOperator(1);
-	  else if (calcButtonPlus.contains(x, y))
-		putOperator(2);
-	  else if (calcButtonDiv.contains(x, y))
-		putOperator(3);
-	  else if (calcButtonTimes.contains(x, y))
-		putOperator(4);
-	  else if (calcButtonExual.contains(x, y))
-		getResult();
-	  else if (calcButtonBin.contains(x, y))
-	  {
-		n1.clear();
-		n2.clear();
-		op = 0;
-		program = 1;
-		calcButtonA.enabled(false);
-		calcButtonB.enabled(false);
-		calcButtonC.enabled(false);
-		calcButtonD.enabled(false);
-		calcButtonE.enabled(false);
-		calcButtonF.enabled(false);
-		calcButtonDot.enabled(false);
-		calcButton0.enabled(true);
-		calcButton1.enabled(true);
-		calcButton2.enabled(false);
-		calcButton3.enabled(false);
-		calcButton4.enabled(false);
-		calcButton5.enabled(false);
-		calcButton6.enabled(false);
-		calcButton7.enabled(false);
-		calcButton8.enabled(false);
-		calcButton9.enabled(false);
-	  }
-	  else if (calcButtonOct.contains(x, y))
-	  {
-		n1.clear();
-		n2.clear();
-		op = 0;
-		program = 2;
-		calcButtonA.enabled(false);
-		calcButtonB.enabled(false);
-		calcButtonC.enabled(false);
-		calcButtonD.enabled(false);
-		calcButtonE.enabled(false);
-		calcButtonF.enabled(false);
-		calcButtonDot.enabled(false);
-		calcButton0.enabled(true);
-		calcButton1.enabled(true);
-		calcButton2.enabled(true);
-		calcButton3.enabled(true);
-		calcButton4.enabled(true);
-		calcButton5.enabled(true);
-		calcButton6.enabled(true);
-		calcButton7.enabled(true);
-		calcButton8.enabled(false);
-		calcButton9.enabled(false);
-	  }
-	  else if (calcButtonDec.contains(x, y))
-	  {
-		n1.clear();
-		n2.clear();
-		op = 0;
-		program = 3;
-		calcButtonA.enabled(false);
-		calcButtonB.enabled(false);
-		calcButtonC.enabled(false);
-		calcButtonD.enabled(false);
-		calcButtonE.enabled(false);
-		calcButtonF.enabled(false);
-		calcButtonDot.enabled(true);
-		calcButton0.enabled(true);
-		calcButton1.enabled(true);
-		calcButton2.enabled(true);
-		calcButton3.enabled(true);
-		calcButton4.enabled(true);
-		calcButton5.enabled(true);
-		calcButton6.enabled(true);
-		calcButton7.enabled(true);
-		calcButton8.enabled(true);
-		calcButton9.enabled(true);
-	  }
-	  else if (calcButtonHex.contains(x, y))
-	  {
-		n1.clear();
-		n2.clear();
-		op = 0;
-		program = 4;
-		calcButtonA.enabled(true);
-		calcButtonB.enabled(true);
-		calcButtonC.enabled(true);
-		calcButtonD.enabled(true);
-		calcButtonE.enabled(true);
-		calcButtonF.enabled(true);
-		calcButtonDot.enabled(false);
-		calcButton0.enabled(true);
-		calcButton1.enabled(true);
-		calcButton2.enabled(true);
-		calcButton3.enabled(true);
-		calcButton4.enabled(true);
-		calcButton5.enabled(true);
-		calcButton6.enabled(true);
-		calcButton7.enabled(true);
-		calcButton8.enabled(true);
-		calcButton9.enabled(true);
-	  }
+  void mousePressed(int x, int y) {
+	if (calcButtonA.contains(x, y))
+	  putNumber('A');
+	else if (calcButtonB.contains(x, y))
+	  putNumber('B');
+	else if (calcButtonC.contains(x, y))
+	  putNumber('C');
+	else if (calcButtonD.contains(x, y))
+	  putNumber('D');
+	else if (calcButtonE.contains(x, y))
+	  putNumber('E');
+	else if (calcButtonF.contains(x, y))
+	  putNumber('F');
+	else if (calcButton0.contains(x, y))
+	  putNumber('0');
+	else if (calcButtonDot.contains(x, y))
+	  putNumber('.');
+	else if (calcButton1.contains(x, y))
+	  putNumber('1');
+	else if (calcButton2.contains(x, y))
+	  putNumber('2');
+	else if (calcButton3.contains(x, y))
+	  putNumber('3');
+	else if (calcButton4.contains(x, y))
+	  putNumber('4');
+	else if (calcButton5.contains(x, y))
+	  putNumber('5');
+	else if (calcButton6.contains(x, y))
+	  putNumber('6');
+	else if (calcButton7.contains(x, y))
+	  putNumber('7');
+	else if (calcButton8.contains(x, y))
+	  putNumber('8');
+	else if (calcButton9.contains(x, y))
+	  putNumber('9');
+	else if (calcButtonDel.contains(x, y))
+	  deleteFn();
+	else if (calcButtonMin.contains(x, y))
+	  putOperator(1);
+	else if (calcButtonPlus.contains(x, y))
+	  putOperator(2);
+	else if (calcButtonDiv.contains(x, y))
+	  putOperator(3);
+	else if (calcButtonTimes.contains(x, y))
+	  putOperator(4);
+	else if (calcButtonExual.contains(x, y))
+	  getResult();
+	else if (calcButtonBin.contains(x, y))
+	{
+	  n1.clear();
+	  n2.clear();
+	  op = 0;
+	  program = 1;
+	  calcButtonA.enabled(false);
+	  calcButtonB.enabled(false);
+	  calcButtonC.enabled(false);
+	  calcButtonD.enabled(false);
+	  calcButtonE.enabled(false);
+	  calcButtonF.enabled(false);
+	  calcButtonDot.enabled(false);
+	  calcButton0.enabled(true);
+	  calcButton1.enabled(true);
+	  calcButton2.enabled(false);
+	  calcButton3.enabled(false);
+	  calcButton4.enabled(false);
+	  calcButton5.enabled(false);
+	  calcButton6.enabled(false);
+	  calcButton7.enabled(false);
+	  calcButton8.enabled(false);
+	  calcButton9.enabled(false);
+	}
+	else if (calcButtonOct.contains(x, y))
+	{
+	  n1.clear();
+	  n2.clear();
+	  op = 0;
+	  program = 2;
+	  calcButtonA.enabled(false);
+	  calcButtonB.enabled(false);
+	  calcButtonC.enabled(false);
+	  calcButtonD.enabled(false);
+	  calcButtonE.enabled(false);
+	  calcButtonF.enabled(false);
+	  calcButtonDot.enabled(false);
+	  calcButton0.enabled(true);
+	  calcButton1.enabled(true);
+	  calcButton2.enabled(true);
+	  calcButton3.enabled(true);
+	  calcButton4.enabled(true);
+	  calcButton5.enabled(true);
+	  calcButton6.enabled(true);
+	  calcButton7.enabled(true);
+	  calcButton8.enabled(false);
+	  calcButton9.enabled(false);
+	}
+	else if (calcButtonDec.contains(x, y))
+	{
+	  n1.clear();
+	  n2.clear();
+	  op = 0;
+	  program = 3;
+	  calcButtonA.enabled(false);
+	  calcButtonB.enabled(false);
+	  calcButtonC.enabled(false);
+	  calcButtonD.enabled(false);
+	  calcButtonE.enabled(false);
+	  calcButtonF.enabled(false);
+	  calcButtonDot.enabled(true);
+	  calcButton0.enabled(true);
+	  calcButton1.enabled(true);
+	  calcButton2.enabled(true);
+	  calcButton3.enabled(true);
+	  calcButton4.enabled(true);
+	  calcButton5.enabled(true);
+	  calcButton6.enabled(true);
+	  calcButton7.enabled(true);
+	  calcButton8.enabled(true);
+	  calcButton9.enabled(true);
+	}
+	else if (calcButtonHex.contains(x, y))
+	{
+	  n1.clear();
+	  n2.clear();
+	  op = 0;
+	  program = 4;
+	  calcButtonA.enabled(true);
+	  calcButtonB.enabled(true);
+	  calcButtonC.enabled(true);
+	  calcButtonD.enabled(true);
+	  calcButtonE.enabled(true);
+	  calcButtonF.enabled(true);
+	  calcButtonDot.enabled(false);
+	  calcButton0.enabled(true);
+	  calcButton1.enabled(true);
+	  calcButton2.enabled(true);
+	  calcButton3.enabled(true);
+	  calcButton4.enabled(true);
+	  calcButton5.enabled(true);
+	  calcButton6.enabled(true);
+	  calcButton7.enabled(true);
+	  calcButton8.enabled(true);
+	  calcButton9.enabled(true);
 	}
   }
 };

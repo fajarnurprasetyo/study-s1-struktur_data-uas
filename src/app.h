@@ -6,6 +6,8 @@
 
 #include "calc/adv_calc.h"
 
+#include "graph/graph.h"
+
 #include "tree/tree.h"
 
 #include "sort/base_sort.h"
@@ -47,7 +49,7 @@ private:
 	caviarDreamsB18,
 	caviarDreamsB32;
 
-  int mainProgram = 4;
+  int mainProgram = 0;
   vector<char*> mainMenu = {
 	"Input Data",
 	"Advanced Calc",
@@ -55,13 +57,16 @@ private:
 	"Binary Tree",
 	"Sorting Simulation",
   };
-  int mainMenuSelected = 0;
+  int mainMenuSelected = 2;
 
   // INPUT DATA
-  char* inputName = "";
+  string inputData;
 
   // CALCULATOR
   AdvCalc calc;
+
+  // GRAPH
+  Graph graph;
 
   // BINARY TREE
   float
@@ -142,7 +147,6 @@ public:
   void setup();
   void update();
   void drawMenu(char* title, vector<char*> menu, int selected);
-  void drawCalc();
   void drawTree(Tree* tree, float x, float y);
   void drawTreeTraverse();
   void draw();
@@ -153,13 +157,6 @@ public:
   void keyPressed(int key);
   void keyReleased(int key);
   void mouseMoved(int x, int y);
-  void mouseDragged(int x, int y, int button);
   void mousePressed(int x, int y, int button);
-  void mouseReleased(int x, int y, int button);
-  void mouseEntered(int x, int y);
-  void mouseExited(int x, int y);
-  void windowResized(int w, int h);
-  void dragEvent(ofDragInfo dragInfo);
-  void gotMessage(ofMessage msg);
   void exit();
 };

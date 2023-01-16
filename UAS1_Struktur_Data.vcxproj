@@ -180,8 +180,8 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxButton.cpp" />
     <ClCompile Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxColorPicker.cpp" />
@@ -195,7 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\addons\ofxTrueTypeFont.h" />
-    <ClInclude Include="src\app.h" />
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxButton.h" />
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxColorPicker.h" />
@@ -208,8 +207,11 @@
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="src\app.h" />
     <ClInclude Include="src\calc\adv_calc.h" />
     <ClInclude Include="src\calc\calc_button.h" />
+    <ClInclude Include="src\graph\graph.h" />
+    <ClInclude Include="src\graph\node.h" />
     <ClInclude Include="src\sort\base_sort.h" />
     <ClInclude Include="src\sort\bingo_sort.h" />
     <ClInclude Include="src\sort\bitonic_sort.h" />
@@ -239,6 +241,7 @@
     <ClInclude Include="src\sort\tim_sort.h" />
     <ClInclude Include="src\sort\tree_sort.h" />
     <ClInclude Include="src\tree\tree.h" />
+    <ClInclude Include="src\utils\drawMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

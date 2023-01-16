@@ -18,6 +18,9 @@ void App::setup() {
   // CALCULATOR
   calc.setup();
 
+  // GRAPH
+  graph.setup();
+
   // BINARY TREE
   treeSettings.setup("Binary Tree");
 
@@ -203,11 +206,6 @@ void App::drawMenu(char* title, vector<char*> menu, int selected) {
 }
 
 //=============================================================================
-void App::drawCalc() {
-  calc.draw();
-}
-
-//=============================================================================
 void App::drawTree(Tree* node, float cx, float cy) {
   ofPushMatrix();
   ofTranslate(cx, cy);
@@ -271,13 +269,17 @@ void App::draw() {
   case 0:
 	drawMenu("UAS1 Struktur Data", mainMenu, mainMenuSelected);
 	break;
-  case 1:
 	// INPUT DATA
-	caviarDreamsB18.drawString(inputName, 32, 64);
+  case 1:
+	caviarDreamsB18.drawString(inputData, 32, 64);
 	break;
-  case 2:
 	// CALCULATOR
-	drawCalc();
+  case 2:
+	calc.draw();
+	break;
+	// GRAPH
+  case 3:
+	graph.draw();
 	break;
 	// BINARY TREE
   case 4:
@@ -348,6 +350,8 @@ void App::mainKeyPressed(int key) {
 	  break;
 	case OF_KEY_RETURN:
 	  mainProgram = mainMenuSelected + 1;
+	  if (mainProgram == 3)
+		graph.reset();
 	  break;
 	}
   }
@@ -356,7 +360,13 @@ void App::mainKeyPressed(int key) {
 //=============================================================================
 void App::inputKeyPressed(int key) {
   switch (key) {
-  case OF_KEY_RETURN:
+  case OF_KEY_ESC:
+	mainProgram = 0;
+	inputData.clear();
+	break;
+  case OF_KEY_BACKSPACE:
+	if (inputData.size() > 0)
+	  inputData.pop_back();
 	break;
   }
 }
@@ -404,7 +414,8 @@ void App::keyPressed(int key) {
 	break;
   case 1:
 	inputKeyPressed(key);
-	break;
+  case 2:
+  case 3:
   case 4:
 	if (key == OF_KEY_ESC)
 	  mainProgram = 0;
@@ -430,47 +441,17 @@ void App::mouseMoved(int x, int y) {
 }
 
 //=============================================================================
-void App::mouseDragged(int x, int y, int button) {
-
-}
-
-//=============================================================================
 void App::mousePressed(int x, int y, int button) {
-  switch (mainProgram) {
-  case 2:
-	calc.mousePressed(x, y, button);
-	break;
+  if (button == OF_MOUSE_BUTTON_LEFT) {
+	switch (mainProgram) {
+	case 2:
+	  calc.mousePressed(x, y);
+	  break;
+	case 3:
+	  graph.mousePressed(x, y);
+	  break;
+	}
   }
-}
-
-//=============================================================================
-void App::mouseReleased(int x, int y, int button) {
-
-}
-
-//=============================================================================
-void App::mouseEntered(int x, int y) {
-
-}
-
-//=============================================================================
-void App::mouseExited(int x, int y) {
-
-}
-
-//=============================================================================
-void App::windowResized(int w, int h) {
-
-}
-
-//=============================================================================
-void App::gotMessage(ofMessage msg) {
-
-}
-
-//=============================================================================
-void App::dragEvent(ofDragInfo dragInfo) {
-
 }
 
 //=============================================================================

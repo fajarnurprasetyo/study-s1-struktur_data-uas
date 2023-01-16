@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\app.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
     <ClCompile Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\app.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -51,23 +51,14 @@
     <Filter Include="addons\ofxGui\src">
       <UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\sort">
-      <UniqueIdentifier>{f04f326c-4603-4df4-bbd7-3616293aa416}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\tree">
-      <UniqueIdentifier>{c68305c1-da79-4829-9b65-a69d31d5d097}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\addons">
-      <UniqueIdentifier>{8bd5e200-c5f3-43c2-a7d5-49f0bdca2d76}</UniqueIdentifier>
+      <UniqueIdentifier>{f085d39a-c8f4-47fe-999a-c6d1e03ece07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\calc">
-      <UniqueIdentifier>{b3246d67-8a8a-4ed4-a9d7-ce9f7aa2561c}</UniqueIdentifier>
+    <Filter Include="src\sort">
+      <UniqueIdentifier>{7f5b28e0-048e-4760-8119-7db3fbba40d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\app.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxBaseGui.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
@@ -104,25 +95,41 @@
     <ClInclude Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\base_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\addons\ofxTrueTypeFont.h">
+      <Filter>src\addons</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\bubble_sort.h">
+    <ClInclude Include="src\utils\drawMenu.h" />
+    <ClInclude Include="src\app.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\calc\adv_calc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\calc\calc_button.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graph\graph.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graph\node.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tree\tree.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sort\base_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
     <ClInclude Include="src\sort\bingo_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\selection_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\insertion_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\merge_sort.h">
+    <ClInclude Include="src\sort\bitonic_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
     <ClInclude Include="src\sort\brick_sort.h">
+      <Filter>src\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sort\bubble_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
     <ClInclude Include="src\sort\bucket_sort.h">
@@ -146,6 +153,15 @@
     <ClInclude Include="src\sort\heap_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
+    <ClInclude Include="src\sort\insertion_sort.h">
+      <Filter>src\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sort\merge_sort.h">
+      <Filter>src\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sort\merge3_sort.h">
+      <Filter>src\sort</Filter>
+    </ClInclude>
     <ClInclude Include="src\sort\pancake_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
@@ -158,7 +174,7 @@
     <ClInclude Include="src\sort\radix_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\merge3_sort.h">
+    <ClInclude Include="src\sort\selection_sort.h">
       <Filter>src\sort</Filter>
     </ClInclude>
     <ClInclude Include="src\sort\shell_sort.h">
@@ -184,21 +200,6 @@
     </ClInclude>
     <ClInclude Include="src\sort\tree_sort.h">
       <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\bitonic_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tree\tree.h">
-      <Filter>src\tree</Filter>
-    </ClInclude>
-    <ClInclude Include="src\addons\ofxTrueTypeFont.h">
-      <Filter>src\addons</Filter>
-    </ClInclude>
-    <ClInclude Include="src\calc\calc_button.h">
-      <Filter>src\calc</Filter>
-    </ClInclude>
-    <ClInclude Include="src\calc\adv_calc.h">
-      <Filter>src\calc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
