@@ -4,7 +4,7 @@
 
 #include "addons/ofxTrueTypeFont.h"
 
-#include "calc/adv_calc.h"
+#include "calc/calc.h"
 
 #include "graph/graph.h"
 
@@ -52,7 +52,7 @@ private:
   int mainProgram = 0;
   vector<char*> mainMenu = {
 	"Input Data",
-	"Advanced Calc",
+	"Calculator",
 	"Graph Simulation",
 	"Binary Tree",
 	"Sorting Simulation",
@@ -63,7 +63,7 @@ private:
   string inputData;
 
   // CALCULATOR
-  AdvCalc calc;
+  Calc calc;
 
   // GRAPH
   Graph graph;

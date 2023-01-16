@@ -98,11 +98,10 @@
     <ClInclude Include="src\addons\ofxTrueTypeFont.h">
       <Filter>src\addons</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\drawMenu.h" />
     <ClInclude Include="src\app.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\calc\adv_calc.h">
+    <ClInclude Include="src\calc\calc.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\calc\calc_button.h">
@@ -204,5 +203,8 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

@@ -304,6 +304,7 @@ void App::draw() {
 	  drawMenu("Sorting Simulation", menu, sortingMenuSelected);
 	}
 	else {
+	  ofSetRectMode(OF_RECTMODE_CORNER);
 	  float W = ofGetWidth();
 	  float H = ofGetHeight();
 
