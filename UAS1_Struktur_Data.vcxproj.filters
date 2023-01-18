@@ -34,9 +34,6 @@
     <ClCompile Include="..\of_v0.11.2_vs2017_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\app.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -54,8 +51,11 @@
     <Filter Include="src\addons">
       <UniqueIdentifier>{f085d39a-c8f4-47fe-999a-c6d1e03ece07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\sort">
-      <UniqueIdentifier>{7f5b28e0-048e-4760-8119-7db3fbba40d3}</UniqueIdentifier>
+    <Filter Include="src\app">
+      <UniqueIdentifier>{9f0264c9-d2c1-41b7-8d61-542cc7a34cab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\app\sorting">
+      <UniqueIdentifier>{0040d665-2829-4225-b315-5f088793859b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,107 +98,41 @@
     <ClInclude Include="src\addons\ofxTrueTypeFont.h">
       <Filter>src\addons</Filter>
     </ClInclude>
-    <ClInclude Include="src\app.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\app\BaseApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\calc\calc.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\app\BinaryTreeApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\calc\calc_button.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\app\CalculatorApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\graph\graph.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\app\GraphApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\graph\node.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\app\InputDataApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\tree\tree.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\app\MainApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\base_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\app\SortingApp.h">
+      <Filter>src\app</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\bingo_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\app\sorting\BaseSort.h">
+      <Filter>src\app\sorting</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\bitonic_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\app\sorting\BitonicSort.h">
+      <Filter>src\app\sorting</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\brick_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\app\sorting\BubbleSort.h">
+      <Filter>src\app\sorting</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\bubble_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\app\sorting\CocktailSort.h">
+      <Filter>src\app\sorting</Filter>
     </ClInclude>
-    <ClInclude Include="src\sort\bucket_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\cocktail_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\comb_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\counting_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\cycle_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\gnome_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\heap_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\insertion_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\merge_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\merge3_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\pancake_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\pigeonhole_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\quick_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\radix_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\selection_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\shell_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\sleep_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\stooge_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\strand_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\structure_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\tag_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\tim_sort.h">
-      <Filter>src\sort</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sort\tree_sort.h">
-      <Filter>src\sort</Filter>
+    <ClInclude Include="src\app\sorting\InsertionSort.h">
+      <Filter>src\app\sorting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

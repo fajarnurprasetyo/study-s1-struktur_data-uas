@@ -230,7 +230,7 @@ void App::drawTree(Tree* node, float cx, float cy) {
   ofSetColor(20);
   ofDrawCircle(0, treeNodeSize, treeNodeSize - 2);
   ofSetColor(200);
-  caviarDreamsB14.drawStringCentered(ofToString(node->value), 0, treeNodeSize);
+  caviarDreamsB14.drawString(ofToString(node->value), 0, treeNodeSize);
   ofPopMatrix();
 }
 
